@@ -1,0 +1,72 @@
+{
+  "plugins": [
+    "import"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "rules": {
+    "no-new-object": 2,
+    "no-array-constructor": 2,
+    "no-new-func": 2,
+    "array-callback-return": 2,
+    "no-console": 1,
+    "no-unused-vars": 1,
+    "no-var": 1,
+    "prefer-const": 1,
+    "object-shorthand": 1,
+    "quote-props": [1, "as-needed"],
+    "prefer-template": 1,
+    "func-style": 1,
+    "wrap-iife": 1,
+    "no-loop-func": 1,
+    "prefer-rest-params": 1,
+    "space-before-blocks": 1,
+    "space-before-function-paren": [1, "never"],
+    "no-param-reassign": 1,
+    "prefer-spread": 1,
+    "prefer-arrow-callback": 1,
+    "arrow-spacing": 1,
+    "no-confusing-arrow": 1,
+    "no-useless-constructor": 1,
+    "import/no-mutable-exports": 1,
+    "import/prefer-default-export": 1,
+    "import/first": 1,
+    "import/no-webpack-loader-syntax": 1,
+    "no-iterator": 1,
+    "dot-notation": 1,
+    "one-var": [1, "never"],
+    "no-plusplus": 1,
+    "no-unneeded-ternary": 1,
+    "brace-style": 1,
+    "spaced-comment": 1,
+    "indent": [1, 2],
+    "keyword-spacing": 1,
+    "space-infix-ops": 1,
+    "newline-per-chained-call": 1,
+    "no-whitespace-before-property": 1,
+    "padded-blocks": [1, "never"],
+    "space-in-parens": 1,
+    "array-bracket-spacing": 1,
+    "object-curly-spacing": [1, "always"],
+    "max-len": 1,
+    "comma-style": 1,
+    "semi": 1,
+    "camelcase": 1,
+    "new-cap": 1,
+    "no-underscore-dangle": 1
+  }
+}
