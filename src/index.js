@@ -54,6 +54,6 @@ app.use((err, req, res, next) => {
       .render('error', { message: err.message });
 });
 
-app.listen(8080, function () {
+app.listen(8080, () => {
   console.log('App listening on port 8080!');
 });
