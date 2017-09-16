@@ -33,6 +33,14 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Eureka' });
 });
 
+app.post('/event', (req, res) => {
+  console.log('EVENT');
+});
+
+app.post('/answer', (req, res) => {
+  console.log('ANSWER');
+});
+
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
@@ -47,5 +55,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(8080, function () {
-  console.log('App listening on port 8080!')
-})
+  console.log('App listening on port 8080!');
+});
