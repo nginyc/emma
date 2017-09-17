@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import * as config from './config';
 
 const app = express();
 
@@ -34,11 +35,24 @@ app.get('/', (req, res) => {
 });
 
 app.post('/event', (req, res) => {
-  console.log('EVENT');
+  res.status(200);
 });
 
 app.post('/answer', (req, res) => {
-  console.log('ANSWER');
+  res.status(200);
+});
+
+app.get('/ncco/conference.json', (req, res) => {
+  const ncco = [
+    {
+      "action": "conversation",
+      "name": "nexmo-conference-standard"
+    }
+  ];
+
+  res.status(200);
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify(ncco));
 });
 
 // Catch 404 and forward to error handler
