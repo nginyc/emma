@@ -13,18 +13,27 @@ block content
           "nos": nos
         })
       });
+
+      window.alert('Call scheduled!');
     }
   div(class='container')
         div(class='image_container')
             img(src='img/heroImage.png' class='hero-image')
+            div(class='explanation_container')
+                h3 - Calls everyone on time
+                h3 - Records your key discussion points
+                h3 - Sends them to everyone in your team
         div(class='form_container')
+            div(class='title_container')
+                img(src='img/Emma.png' class='image-icon')
+                h4 Emma
             h1 Organize your meeting with us
             div(class='form')
                 div(class='form_fields')
                     h5 Phone numbers
                     input#nos(type='text' class='text_box')
-                div(class='form_fields')
+                div(class='form_fields-last')
                     h5 Time of meeting
                     input(type='text' class='text_box')
-                button(onclick='submit()') Submit
+                button(class='button' onclick='submit()') Eureka!
 

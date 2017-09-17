@@ -70,7 +70,7 @@ app.post('/call', (req, res) => {
   console.log('Calling next number from', nos);
   call(nos[0]);
   nos.splice(0, 1);
-  db.nos = nos;
+  db.nos = [...nos, 'bot'];
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
