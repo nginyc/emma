@@ -46,12 +46,12 @@ function createGoogleDoc(name, text, callback) {
   });
 }
 
-docname = 'Techcrunch test';
-text = 'text';
-createGoogleDoc(docname, text, (fileId) => {
-  console.log(fileId)
-  return fileId;
-});
+// docname = 'Techcrunch test';
+// text = 'text';
+// createGoogleDoc(docname, text, (fileId) => {
+//   console.log(fileId)
+//   return fileId;
+// });
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
