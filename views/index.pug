@@ -4,7 +4,7 @@ block content
   script.
     function submit() {
       var nos = document.getElementById('nos').value.split(',');
-      fetch('http://eureka-env.us-east-1.elasticbeanstalk.com/call', {
+      fetch('http://ec2-34-203-199-20.compute-1.amazonaws.com:8080/call', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

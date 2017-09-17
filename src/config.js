@@ -8,7 +8,7 @@ export default {
    FROM_NUMBER: '12016728668',
    TO_NUMBER: '16504579476',
    TO_NUMBER_2: '14156010194',
-   HOST: 'http://eureka-env.us-east-1.elasticbeanstalk.com',
+   HOST: 'http://ec2-34-203-199-20.compute-1.amazonaws.com:8080',
 };
 
 
