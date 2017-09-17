@@ -1,16 +1,22 @@
 import config from './config';
 import nexmo from './nexmo';
+import callBot from './callBot';
 
-export default (nos) => {
+export default (no) => {
+  if (no == 'bot') {
+    callBot();
+    return;
+  }
+
   nexmo.calls.create({
     from: {
       type: 'phone',
       number: config.FROM_NUMBER
     },
-    to: [nos.map(x => ({
+    to: [{
       type: 'phone',
-      number: x
-    }))],
+      number: no
+    }],
     answer_url: [config.HOST + '/answer']
   }, (error, response) => {
     if (error) {

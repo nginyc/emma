@@ -5,6 +5,10 @@ import cors from 'cors';
 import config from './config';
 import call from './call';
 
+const db = {
+  nos: []
+};
+
 const app = express();
 
 app.disable('x-powered-by');
@@ -41,6 +45,13 @@ app.post('/event', (req, res) => {
 });
 
 app.get('/answer', (req, res) => {
+  // Call the next number after answering
+  if (db.nos.length > 0) {
+    console.log('Calling next number from', db.nos);
+    call(db.nos[0]);
+    db.nos.splice(0, 1);
+  }
+
   const ncco = [
     {
       "action": "conversation",
@@ -55,7 +66,10 @@ app.get('/answer', (req, res) => {
 
 app.post('/call', (req, res) => {
   const { nos } = req.body;
-  call(nos);
+  console.log('Calling next number from', nos);
+  call(nos[0]);
+  nos.splice(0, 1);
+  db.nos = [...nos, 'bot'];
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
