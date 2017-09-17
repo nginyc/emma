@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='container')
+        div(class='image_container')
+            img(src='img/heroImage.png' class='hero-image')
+        div(class='form_container')
+            h1 Organize your meeting with us
+            div(class='form')
+                div(class='form_fields')
+                    h5 Phone numbers
+                    input(type='text' class='text_box')
+                div(class='form_fields')
+                    h5 Time of meeting
+                    input(type='text' class='text_box')
+
