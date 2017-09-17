@@ -36,10 +36,12 @@ app.get('/', (req, res) => {
 
 app.post('/event', (req, res) => {
   res.status(200);
+  res.send('EVENT');
 });
 
 app.post('/answer', (req, res) => {
   res.status(200);
+  res.send('ANSWER');
 });
 
 app.get('/ncco/conference.json', (req, res) => {
@@ -50,8 +52,8 @@ app.get('/ncco/conference.json', (req, res) => {
     }
   ];
 
-  res.status(200);
   res.setHeader('Content-Type', 'application/json');
+  res.status(200);
   res.send(JSON.stringify(ncco));
 });
 
