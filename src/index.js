@@ -40,8 +40,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/event', (req, res) => {
+  console.log('Event received:', res);
   res.status(200);
-  res.send('EVENT');
 });
 
 app.get('/answer', (req, res) => {
