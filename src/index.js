@@ -69,6 +69,10 @@ app.post('/call', (req, res) => {
   console.log('Calling next number from', nos);
   call(nos[0]);
   db.nos = nos.splice(0, 1);
+
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200);
+  res.send(JSON.stringify({ success: true }));
 });
 
 // Catch 404 and forward to error handler
