@@ -1,7 +1,13 @@
 import config from './config';
 import nexmo from './nexmo';
+import callBot from './callBot';
 
 export default (no) => {
+  if (no == 'bot') {
+    callBot();
+    return;
+  }
+
   nexmo.calls.create({
     from: {
       type: 'phone',

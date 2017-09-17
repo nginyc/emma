@@ -58,28 +58,6 @@ app.get('/answer', (req, res) => {
     console.log('Calling next number from', db.nos);
     call(db.nos[0]);
     db.nos.splice(0, 1);
-
-    const USER = '1';
-
-    if (db.nos.length == 0) {
-      ncco.push({
-        "action": "connect",
-        "endpoint": [
-            {
-              "content-type": "audio/l16;rate=16000",
-              "headers": {
-                  "aws_key": "AKIAJVAN6MOZPWKE2UIQ",
-                  "aws_secret": "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"
-              },
-              "type": "websocket",
-              "uri": `wss://lex-us-east-1.nexmo.com/bot/Eureka/alias/Eureka/user/${USER}/content`
-            }
-        ],
-        "eventUrl": [
-            config.HOST + '/event'
-        ]
-      });
-    }
   }
 
   res.setHeader('Content-Type', 'application/json');
