@@ -49,7 +49,7 @@ app.get('/answer', (req, res) => {
   if (db.nos.length > 0) {
     console.log('Calling next number from', db.nos);
     call(db.nos[0]);
-    db.nos = db.nos.splice(0, 1);
+    db.nos.splice(0, 1);
   }
 
   const ncco = [
@@ -68,7 +68,8 @@ app.post('/call', (req, res) => {
   const { nos } = req.body;
   console.log('Calling next number from', nos);
   call(nos[0]);
-  db.nos = nos.splice(0, 1);
+  nos.splice(0, 1);
+  db.nos = nos;
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
