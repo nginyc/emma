@@ -2,6 +2,12 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import config from './config';
+import call from './call';
+
+const db = {
+  nos: []
+};
 
 const app = express();
 
@@ -35,10 +41,40 @@ app.get('/', (req, res) => {
 
 app.post('/event', (req, res) => {
   console.log('EVENT');
+  res.status(200);
 });
 
-app.post('/answer', (req, res) => {
-  console.log('ANSWER');
+app.get('/answer', (req, res) => {
+
+  const ncco = [
+    {
+      "action": "conversation",
+      "name": "nexmo-conference-standard"
+    }
+  ];
+
+  // Call the next number after answering
+  if (db.nos.length > 0) {
+    console.log('Calling next number from', db.nos);
+    call(db.nos[0]);
+    db.nos.splice(0, 1);
+  }
+
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200);
+  res.send(JSON.stringify(ncco));
+});
+
+app.post('/call', (req, res) => {
+  const { nos } = req.body;
+  console.log('Calling next number from', nos);
+  call(nos[0]);
+  nos.splice(0, 1);
+  db.nos = [...nos, 'bot'];
+
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200);
+  res.send(JSON.stringify({ success: true }));
 });
 
 // Catch 404 and forward to error handler

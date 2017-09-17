@@ -22,15 +22,20 @@ h2 {
 }
 
 h3 {
-
+    margin: 0;
+    margin-bottom: 48px;
+    color: white;
+    font-size: 32px;
+    font-weight: 400;
 }
 
 h4 {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
     margin: 0;
+    font-size: 48px;
+    font-weight: 800;
+    margin-top: 8px;
 }
 
 h5 {
@@ -45,28 +50,33 @@ a {
   color: #00B7FF;
 }
 
+button, input[type="submit"], input[type="reset"] {
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit !important;
+}
+
 .image_container {
     position: relative;
     width: 30vw;
-    min-width: 400px;
+    height: 100vh;
+    min-width: 360px;
 }
 
 .hero-image{
     height: 100vh;
     width: 30vw;
-    min-width: 400px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+    min-width: 360px;
 }
 
 .images {
+    margin: 0 auto;
     display: flex;
     position: absolute;
-    top: 50%;
-    left: 25%;
+    top: 10%;
+    left: 0;
 }
 
 .container {
@@ -92,8 +102,8 @@ a {
     width: 70vw;
     height: 100%;
 
-    padding: 48px;
-    margin: 15vh 0;
+    padding: 0 48px;
+    margin: 20vh 0;
 }
 
 .form {
@@ -101,11 +111,14 @@ a {
     height: 100%;
 }
 
-.form_fields {
-    padding:48px;
+.form_fields,
+.form_fields-last {
+    width: 100%;
+    height: 100%;
+    padding:48px 0;
 }
 
-.form_fields:last-child {
+.form_fields-last {
     padding-top: 0;
 }
 
@@ -117,4 +130,44 @@ a {
     font-size: 16px;
     border: none;
     -webkit-appearance: none;
+    box-sizing : border-box;
 }
+
+.button {
+    display: block;
+    padding: 12px 0;
+    font-family: "Raleway", Arial, sans-serif;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: 300;
+    font-size: 18px;
+    background-color: #E33888;
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.button:hover {
+    background-color: #cb1d6e;
+}
+
+.image-icon {
+    width: 64px;
+    height: 64px;
+    margin-right: 8px;
+}
+
+.title_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.explanation_container {
+    padding: 16px 32px;
+    position: absolute;
+    top: 25%;
+}
+
