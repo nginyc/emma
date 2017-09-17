@@ -40,17 +40,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/event', (req, res) => {
-  console.log('Event received:', res);
+  console.log('EVENT');
   res.status(200);
 });
 
 app.get('/answer', (req, res) => {
-  // Call the next number after answering
-  if (db.nos.length > 0) {
-    console.log('Calling next number from', db.nos);
-    call(db.nos[0]);
-    db.nos.splice(0, 1);
-  }
 
   const ncco = [
     {
@@ -58,6 +52,35 @@ app.get('/answer', (req, res) => {
       "name": "nexmo-conference-standard"
     }
   ];
+
+  // Call the next number after answering
+  if (db.nos.length > 0) {
+    console.log('Calling next number from', db.nos);
+    call(db.nos[0]);
+    db.nos.splice(0, 1);
+
+    const USER = '1';
+
+    if (db.nos.length == 0) {
+      ncco.push({
+        "action": "connect",
+        "endpoint": [
+            {
+              "content-type": "audio/l16;rate=16000",
+              "headers": {
+                  "aws_key": "AKIAJVAN6MOZPWKE2UIQ",
+                  "aws_secret": "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"
+              },
+              "type": "websocket",
+              "uri": `wss://lex-us-east-1.nexmo.com/bot/Eureka/alias/Eureka/user/${USER}/content`
+            }
+        ],
+        "eventUrl": [
+            config.HOST + '/event'
+        ]
+      });
+    }
+  }
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
@@ -69,7 +92,7 @@ app.post('/call', (req, res) => {
   console.log('Calling next number from', nos);
   call(nos[0]);
   nos.splice(0, 1);
-  db.nos = [...nos, 'bot'];
+  db.nos = nos;
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
