@@ -1,5 +1,6 @@
 import Nexmo from 'nexmo';
 import fs from 'fs';
+import request fron 'request';
 
 const API_KEY = 'f017342b';
 const API_SECRET = 'a985b5ffc326f508';
@@ -33,4 +34,6 @@ nexmo.calls.create({
   }
 });
 
-
+postStuffOntoAWS() {
+  request.post('http://eureka-env.us-east-1.elasticbeanstalk.com/cal', {"nos": ["14156010194", "16504579476"]});
+}
