@@ -44,7 +44,7 @@ app.post('/event', (req, res) => {
   res.send('EVENT');
 });
 
-app.post('/answer', (req, res) => {
+app.get('/answer', (req, res) => {
   // Call the next number after answering
   if (db.nos.length > 0) {
     console.log('Calling next number from', db.nos);
