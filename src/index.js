@@ -2,7 +2,12 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import * as config from './config';
+import config from './config';
+import call from './call';
+
+const db = {
+  nos: []
+};
 
 const app = express();
 
@@ -40,11 +45,13 @@ app.post('/event', (req, res) => {
 });
 
 app.post('/answer', (req, res) => {
-  res.status(200);
-  res.send('ANSWER');
-});
+  // Call the next number after answering
+  if (db.nos.length > 0) {
+    console.log('Calling next number from', db.nos);
+    call(db.nos[0]);
+    db.nos = db.nos.splice(0, 1);
+  }
 
-app.get('/ncco/conference.json', (req, res) => {
   const ncco = [
     {
       "action": "conversation",
@@ -55,6 +62,13 @@ app.get('/ncco/conference.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.status(200);
   res.send(JSON.stringify(ncco));
+});
+
+app.post('/call', (req, res) => {
+  const { nos } = req.body;
+  console.log('Calling next number from', nos);
+  call(nos[0]);
+  db.nos = nos.splice(0, 1);
 });
 
 // Catch 404 and forward to error handler
