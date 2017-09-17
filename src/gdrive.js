@@ -33,7 +33,7 @@ function listFiles() {
  */
 function createGoogleDoc(name, text, callback) {
   // Load client secrets from a local file.
-  fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+  fs.readFile('./src/client_secret.json', function processClientSecrets(err, content) {
     if (err) {
       console.log('Error loading client secret file: ' + err);
       return;
@@ -169,7 +169,7 @@ function createDoc(auth, text, name='Untitled', callback) {
     'description': "GGWP lol",
     'mimeType': 'application/vnd.google-apps.document'
   };
-  
+
   var media = {
     mimeType: 'text/plain',
     body: text
@@ -189,3 +189,5 @@ function createDoc(auth, text, name='Untitled', callback) {
     }
   });
 }
+
+export default createGoogleDoc;

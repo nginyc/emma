@@ -29,10 +29,6 @@ function transcribe(callback) {
     return request.post(options, function(error, response, body) {
         return callback(body);
     });
-};
+}
 
-transcribe((body) => {
-    parser = JSON.parse(body);
-    console.log(parser.results[0].alternatives[0].transcript)
-    return parser.results[0].alternatives[0].transcript
-});
+export default transcribe;

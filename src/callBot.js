@@ -1,8 +1,9 @@
 import config from './config';
 import nexmo from './nexmo';
+import db from './db';
 
 export default () => {
-  const USER = '1';
+  const USER = 'User';
 
   nexmo.calls.create({
     from: {
@@ -25,6 +26,10 @@ export default () => {
       console.error(error);
     } else {
       console.log(response);
+      if (response.uuid) {
+        db.botCallId = response.uuid;
+        console.log('Bot call ID set', response.uuid);
+      }
     }
   });
 };
