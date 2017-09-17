@@ -9,7 +9,6 @@ import db from './db';
 import startRecording from './startRecording';
 import nexmo from './nexmo';
 import fs from 'fs';
-import transcribe from './gcloud';
 import createGoogleDoc from './gdrive';
 
 const app = express();
