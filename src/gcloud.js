@@ -20,7 +20,7 @@ function create_options(file, type) {
         url: 'https://speech.googleapis.com/v1/speech:recognize',
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ya29.GlzJBP8pa2-7FZw1RSm5xePEnACkusPCMxMw5QTfk1KP91wWXK9Ofqdjq5dlYLpuRiK2oSWeMw8Ltk38tdZJi2QxoKk0_EmXT5J3iOOY-PSxWMlFxiHreBJUWmxwtQ',
+            'Authorization': 'Bearer xxxxxx',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data(file, type))

@@ -69,11 +69,8 @@ app.post('/event', (req, res) => {
     });
   }
 
-
   res.status(200);
 });
-
-
 
 app.get('/answer', (req, res) => {
   const ncco = [

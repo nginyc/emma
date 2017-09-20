@@ -13,8 +13,8 @@ export default () => {
     to: [{
       "content-type": "audio/l16;rate=16000",
       "headers": {
-          "aws_key": "AKIAJVAN6MOZPWKE2UIQ",
-          "aws_secret": "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"
+          "aws_key": "xxxxxxxxx",
+          "aws_secret": "xxxxxxxxx"
       },
       "type": "websocket",
       "uri": `wss://lex-us-east-1.nexmo.com/bot/Eureka/alias/Eureka/user/${USER}/content`
